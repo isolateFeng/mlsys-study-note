@@ -22,7 +22,7 @@ My rubbish study note for MLsys
 |   ├── 只整理了一部分，不整理是因为太懒了
 |   └── ...
 |
-└── tools                       : Path: tools
+└── tools
     ├── git / vim / tmux 等使用笔记
     ├── macOS 配置
     └── ...

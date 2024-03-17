@@ -1,5 +1,7 @@
 # git
 
+[toc]
+
 ## 显示当前分支
 
 ```
@@ -25,7 +27,7 @@ vim .bashrc
 保存退出，执行加载命令
 
 ```
- source ./.bashrc
+ source ~/.bashrc
 ```
 
 ## 常用操作
@@ -64,7 +66,7 @@ git commit -m "Here's the bug fix that closes #28"
 # 推到远程仓库
 git push origin myfeature -f
  
-# 修改完review意见后，在docker内
+# rebase代码
 git checkout myfeature
 git rebase origin/master
 git push origin myfeature -f
@@ -75,10 +77,14 @@ git show --name-only
 git show <commit-hash>
 git log --oneline # 查看最近的提交
  
-git rebase -i 版本号 # 指定需要合并版本号，处理从该版本后往后的commit，不包含该版本，会进入vi编辑器
-git commit -n --amend  # 或者使用这个命令将其合并进上一个commit
- 
 # 例如，把 e57b0e6 合并到 17cb931，不保留注释
 pick 17cb931 fix && add batch del
 f e57b0e6 fix && add batch del
+
+# 指定需要合并版本号，处理从该版本后往后的commit，不包含该版本，会进入vi编辑器
+git rebase -i 版本号
+git commit -n --amend  # 或者使用这个命令将其合并进上一个commit
+
+# 使用别人的patch测试，记得先fetch
+git cherry-pick commit_id
 ```
